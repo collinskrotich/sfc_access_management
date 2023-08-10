@@ -1,10 +1,10 @@
-import { Sidebar } from '@/components/Sidebar'
-import Image from 'next/image'
+"use client";
+import { Sidebar } from '@/components/sideBar'
 
 export default function Home() {
   return (
     <div>
-      <Sidebar/>
+      <Sidebar />
     </div>
   )
 }

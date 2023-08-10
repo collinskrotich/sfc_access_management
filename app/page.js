@@ -1,5 +1,5 @@
 "use client";
-import { Sidebar } from '@/components/sideBar'
+import { Sidebar } from '@/components/Sidebar'
 
 export default function Home() {
   return (

@@ -9,19 +9,25 @@ function page() {
         <input 
          className='border border-slate-500 px-8 py-2'
          type='text'
-         placeholder='Employee Name'        
+         placeholder='User Full Name'        
         />
         
         <input 
          className='border border-slate-500 px-8 py-2'
          type='text'
-         placeholder='Employee EK No'        
+         placeholder='User Email'        
         />
 
         <input 
          className='border border-slate-500 px-8 py-2'
          type='text'
-         placeholder='Employee National ID'        
+         placeholder='User Role'        
+        />
+
+        <input 
+         className='border border-slate-500 px-8 py-2'
+         type='text'
+         placeholder='User Password'        
         />
 
         <button className='bg-green-600 font-bold text-white py-3 px-6 w-fit'>

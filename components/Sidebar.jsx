@@ -15,6 +15,7 @@ import {
 } from "react-icons/md";   
 
 import {BsFillBuildingsFill} from "react-icons/bs";
+import {GiStaticGuard} from "react-icons/gi";
 import { CgProfile} from "react-icons/cg";
 import { FaRegComments} from "react-icons/fa";
 import { BiMessageSquareDots } from "react-icons/bi";
@@ -41,6 +42,13 @@ export const Sidebar = () => {
                             </h3>
                         </div>
 
+                        <Link href={"/users"} className='flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto'>
+                            <GiStaticGuard className='text-2xl text-gray-600 group-hover:text-white' />
+                            <h1 className='text-base text-gray-600 group-hover:text-white font-semibold'>
+                                GateKeepers
+                            </h1>
+                        </Link>
+
                         <div className='flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto'>
                             <BsFillBuildingsFill className='text-2xl text-gray-600 group-hover:text-white' />
                             <h3 className='text-base text-gray-600 group-hover:text-white font-semibold'>
@@ -51,9 +59,10 @@ export const Sidebar = () => {
                         <Link href={"/users"} className='flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto'>
                             <CgProfile className='text-2xl text-gray-600 group-hover:text-white' />
                             <h1 className='text-base text-gray-600 group-hover:text-white font-semibold'>
-                                Users
+                                Employees
                             </h1>
                         </Link>
+
 
                         <div className='flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto'>
                             <MdOutlineAnalytics className='text-2xl text-gray-600 group-hover:text-white' />

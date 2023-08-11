@@ -27,8 +27,8 @@ async function UserList() {
 
   return (
     <>
-    {rusers.map((t) => (
-    <div className='p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start'>
+    {rusers.map((t, index) => (
+    <div key={index} className='p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start'>
         <div>
             <h2 className='font-bold'>{t.fullname}</h2>
             <h2>{t.email}</h2>

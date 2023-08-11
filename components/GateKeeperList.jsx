@@ -27,8 +27,8 @@ async function GateKeeperList() {
 
   return (
     <>
-    {gatekeepers.map((t) => (
-    <div className='p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start'>
+    {gatekeepers.map((t, index) => (
+    <div key={index}    className='p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start'>
         <div>
             <h2 className='font-bold'>{t.name}</h2>
             <h2>{t.onDuty}</h2>
@@ -36,13 +36,14 @@ async function GateKeeperList() {
             </div>
         <div className='flex gap-2'>
             <RemoveBtn/>
-            <Link href={'/editGateKeeper/123'}>
+            <Link href={'/editGateKeeper/${t.id}'}>
                 <HiPencilAlt size={24}/>
             </Link>
             </div> 
     </div>
     ))}
     </>
+
   )
 }
 

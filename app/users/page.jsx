@@ -1,3 +1,4 @@
+"use client"
 import UserList from '@/components/UserList'
 import Link from 'next/link'
 import React from 'react'

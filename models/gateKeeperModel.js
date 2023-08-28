@@ -4,12 +4,9 @@ const gatekeeperSchema = new Schema(
   {
     name: {
       type: String,
-      required: [true, "Please add a gatekeeper"],
     },
     onDuty: {
       type: Boolean,
-      required: true,
-      default: false,
     },
   },
   {

@@ -1,53 +1,75 @@
-import React from 'react'
-import RemoveBtn from './RemoveBtn'
-import {HiPencilAlt} from 'react-icons/hi'
-import Link from 'next/link'
+'use client'
+import React, { useEffect, useState } from 'react'; // Import useEffect and useState
+import RemoveBtn from './RemoveBtn';
+import { HiPencilAlt } from 'react-icons/hi';
+import Link from 'next/link';
 
-const getGateKeepers = async () => {
-    try{
-        const res = await fetch('http://localhost:3001/api/gatekeepers',
-        
-        {
-        cache: "no-store",
-        }
-        );
+async function getGateKeepers() {
+    try {
+        const res = await fetch('/api/gatekeepers', {
+            cache: 'no-store',
+        });
 
         if (!res.ok) {
-            throw new Error("Failed to fetch gatekeeeper!");
+            throw new Error('Failed to fetch gatekeepers!');
         }
         return res.json();
-        
+    } catch (error) {
+        console.error('Error loading gatekeepers:', error);
+        throw error; // Re-throw the error to be caught higher up
     }
-    catch(error) {
-        console.log("Error loading gatekeepers:", error);
-    }   
 }
 
+function GateKeeperList() {
+  const [gatekeepers, setGateKeepers] = useState([]);
+  const [error, setError] = useState(null); // Add an error state
+  const [loading, setLoading] = useState(true); // Add a loading state
 
-async function GateKeeperList() {
+  useEffect(() => {
+    getGateKeepers()
+        .then((data) => {
+            setGateKeepers(data.gatekeepers);
+            setLoading(false);
+        })
+        .catch((error) => {
+            setError(error);
+            setLoading(false);
+        });
+      }, []);
 
-    const { gatekeepers } = await getGateKeepers();
+      if (error) {
+          return <div>Error loading gatekeepers: {error.message}</div>;
+      }
+      
+ 
 
   return (
-    <>
-    {gatekeepers.map((t) => (
-    <div key={t._id} className='p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start'>
-        <div>
-            <h2 className='font-bold'>{t.name}</h2>
-            <h2>On Duty: {t.onDuty ? 'Yes' : 'No'}</h2>
-            <h2>Thika data center</h2>
-            <h2>Created at: {t.createdAt}</h2>
-            </div>
-        <div className='flex gap-2'>
-            <RemoveBtn/>
-            <Link href={'/editGateKeeper/123'}>
-                <HiPencilAlt size={24}/>
-            </Link>
-            </div> 
-    </div>
-    ))}
-    </>
-  )
+      <>
+          {loading ? (
+              <p>Loading...</p>
+          ) : (
+              gatekeepers.map((t) => (
+                  <div
+                      key={t._id}
+                      className='p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start'
+                  >
+                      <div>
+                          <h2 className='font-bold'>{t.name}</h2>
+                          <h2>On Duty: {t.onDuty ? 'Yes' : 'No'}</h2>
+                          <h2>Thika data center</h2>
+                          <h2>Created at: {t.createdAt}</h2>
+                      </div>
+                      <div className='flex gap-2'>
+                          <RemoveBtn />
+                          <Link href={`/editGateKeeper/${t._id}`}>
+                              <HiPencilAlt size={24} />
+                          </Link>
+                      </div>
+                  </div>
+              ))
+          )}
+      </>
+  );
 }
 
-export default GateKeeperList
+export default GateKeeperList;

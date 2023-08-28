@@ -7,6 +7,7 @@ function EditUserForm({id, fullName, email, role }) {
     const [newFullName, setNewFullName] = useState(fullName);
     const [newEmail, setNewEmail] = useState(email);
     const [newRole, setNewRole] = useState(role);
+    
     const router = useRouter();
 
     const handleSubmit = async (e) => {
@@ -28,7 +29,7 @@ function EditUserForm({id, fullName, email, role }) {
 
       router.refresh();
       router.push("/");
-      
+
       } catch (error) {
         console.log(error)
       }

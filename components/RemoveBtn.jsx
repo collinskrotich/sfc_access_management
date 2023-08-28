@@ -6,11 +6,12 @@ import { HiOutlineTrash } from 'react-icons/hi';
 
 export default function RemoveBtn( {id} ) {
   const router = useRouter();
+  
   const removeUser = async () => {
     const confirmed = confirm("Are you sure?");
 
     if(confirmed) {
-      const res = await fetch(`/api/users/${id}`, {
+      const res = await fetch(`/api/users?id=${id}`, {
         method: 'DELETE',
       });
 

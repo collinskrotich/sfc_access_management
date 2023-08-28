@@ -9,7 +9,7 @@ const getUserById = async (id) => {
     });
 
     if(!res.ok) {
-      throw new Error('Failed to fetch user')
+      throw new Error('Failed to fetch user');
     }
     return res.json();
 
@@ -25,10 +25,11 @@ export default async function EditUser({ params }) {
   const { fullName, email, role } = user;
   return (
     <EditUserForm 
+      id={id}
       fullName={fullName}
       email={email}
       role={role}
-      id={id}
+      
     />
   )
 }

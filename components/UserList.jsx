@@ -48,7 +48,7 @@ function UserList() {
             <h2>{t.role}</h2>
           </div>
           <div className='flex gap-2'>
-            <RemoveBtn />
+            <RemoveBtn id={t._id}/>
             <Link href={`/editUser/${t._id}`}>
               <HiPencilAlt size={24} />
             </Link>

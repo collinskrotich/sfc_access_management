@@ -12,12 +12,6 @@ const Users = () => {
     </nav>
       <div>
         <UserList/>
-        <UserList/>
-        <UserList/>
-        <UserList/>
-        <UserList/>
-        <UserList/>
-        <UserList/>
       </div>
     </>
   )

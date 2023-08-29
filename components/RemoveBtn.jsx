@@ -2,11 +2,12 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
+
 import { HiOutlineTrash } from 'react-icons/hi';
 
 export default function RemoveBtn( {id} ) {
   const router = useRouter();
-  
+
   const removeUser = async () => {
     const confirmed = confirm("Are you sure?");
 
@@ -16,7 +17,8 @@ export default function RemoveBtn( {id} ) {
       });
 
       if (res.ok){
-        router.refresh();     
+        router.refresh();  
+        window.location.reload();
       }
     }
   };

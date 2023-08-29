@@ -28,7 +28,7 @@ function EditUserForm({id, fullName, email, role }) {
       }
 
       router.refresh();
-      router.push("/");
+      router.push("/users");
       console.log('full Name', newFullName, id )
 
       } catch (error) {

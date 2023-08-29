@@ -2,12 +2,11 @@ import mongoose, {Schema} from "mongoose";
 
 const gatekeeperSchema = new Schema(
   {
-    name: {
-      type: String,
-    },
-    onDuty: {
-      type: Boolean,
-    },
+    name: String,
+    phoneNo: String,
+    staffNo: String,
+    station: String,
+    onDuty: Boolean
   },
   {
     timestamps: true,

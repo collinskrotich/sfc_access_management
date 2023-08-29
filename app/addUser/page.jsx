@@ -3,9 +3,9 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
-export default function addUser() {
+export default function AddUser() {
 
-  const [fullName, setFullname] = useState("");
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
   const [password, setPassword] = useState("");
@@ -43,7 +43,7 @@ export default function addUser() {
     <div className='mt-8'>
     <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
         <input 
-         onChange={(e) => setFullname(e.target.value)}
+         onChange={(e) => setFullName(e.target.value)}
          value={fullName}
          className='border border-slate-500 px-8 py-2'
          type='text'

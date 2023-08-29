@@ -5,7 +5,7 @@ import EditUserForm from '@/components/EditUserForm'
 const getUserById = async (id) => {
   try {
     const res = await fetch(`/api/users/${id}`, {
-      cache: 'no-store',
+      cache: 'no-cache',
     });
 
     if(!res.ok) {
@@ -28,8 +28,7 @@ export default async function EditUser({ params }) {
       id={id}
       fullName={fullName}
       email={email}
-      role={role}
-      
+      role={role}      
     />
   )
 }

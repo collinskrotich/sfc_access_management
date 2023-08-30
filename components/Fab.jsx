@@ -5,7 +5,7 @@ const items = ["Thika data center", "Athi River", "Limuru", "SCC", "Konza"];
 
 function Fab() {
   return (
-    <div className='pl-60 flex gap-3 pt-20'>
+    <div className='pl-60 flex gap-3 pt-10'>
         <div className="GeneralAppWelcome w-190 h-72 pl-10 pr-6 py-6 bg-green-200 rounded-2xl justify-end items-center gap-6 inline-flex">
   <div className=" flex-col justify-start items-start gap-6 inline-flex">
     <div className=" flex-col justify-start items-start gap-2 flex">
@@ -93,7 +93,7 @@ function Fab() {
       <div className="IconIcDiagonalArrowRightUp w-6 h-6 relative" />
     </div>
   </div>
-  
+
   <div className="ChartType w-72 h-28 pr-px justify-center items-center inline-flex">
     <div className=" w-72 h-28 relative">
     </div>

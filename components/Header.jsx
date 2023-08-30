@@ -20,6 +20,12 @@ const Header = () => {
     };
   }, []);
 
+  const daysOfWeek = [
+    'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+  ];
+
+  const formattedDay = daysOfWeek[currentDateTime.getDay()];
+
   const formattedDateTime = `${
     currentDateTime.getDate() // Day
   }-${
@@ -37,7 +43,7 @@ const Header = () => {
   return (
   <div className='pl-60 flex justify-between pt-4'>
 
-    <h2 className='text-xl'>{formattedDateTime} </h2>
+    <h2 className='text-xl'>{formattedDay}, {formattedDateTime} </h2>
     <div className='flex flex-row'>
       <div className='pr-4'>Hello Collins</div>
       <div className='relative pr-4'>

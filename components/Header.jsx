@@ -6,8 +6,6 @@ const months = [
   'July', 'August', 'September', 'October', 'November', 'December'
 ];
 
-
-
 const Header = () => {
 
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
@@ -15,7 +13,7 @@ const Header = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentDateTime(new Date());
-    }, 1000); // Update every 1 second
+    }, 1000); // Update every 5 second
 
     return () => {
       clearInterval(intervalId);
@@ -28,25 +26,21 @@ const Header = () => {
     months[currentDateTime.getMonth()] // Month
   }-${
     currentDateTime.getFullYear() // Year
-  } ${
+  } | ${
     currentDateTime.getHours() // Hours
   }:${
     currentDateTime.getMinutes() // Minutes
-  }:${
-    currentDateTime.getSeconds() // Seconds
   }`;
 
   return (
-  //   <header className='bg-gray-400 text-white p-4 text-center'>
-  //     <Link className='text-2xl font-semibold' href={"/"}>GateKeeper Dashboard</Link>
-  // </header>
-
-  
   <div className='pl-60 flex justify-between pt-4'>
 
-    <h2>{formattedDateTime} </h2>
+    <h2 className='text-xl'>{formattedDateTime} </h2>
     <div className='flex flex-row'>
-      <div className='pr-2'>Welcome back, Collins</div>
+      <div className='pr-2'>Hello Collins</div>
+      <div className='relative'>
+        <img className='w-10 h-10 rounded-full' src='avatar.jpg' alt='avatar' />
+      </div>
     </div>
 
   </div>

@@ -29,7 +29,9 @@ const Header = () => {
   } | ${
     currentDateTime.getHours() // Hours
   }:${
-    currentDateTime.getMinutes() // Minutes
+    currentDateTime.getMinutes().toString().padStart(2, '0')
+  }:${
+    currentDateTime.getSeconds().toString().padStart(2, '0') // Seconds
   }`;
 
   return (
@@ -37,9 +39,10 @@ const Header = () => {
 
     <h2 className='text-xl'>{formattedDateTime} </h2>
     <div className='flex flex-row'>
-      <div className='pr-2'>Hello Collins</div>
-      <div className='relative'>
-        <img className='w-10 h-10 rounded-full' src='avatar.jpg' alt='avatar' />
+      <div className='pr-4'>Hello Collins</div>
+      <div className='relative pr-4'>
+        <img className='w-8 h-8 rounded-full ' src='avatar.jpg' alt='avatar' />
+        <span className="absolute top-0 left-8 transform -translate-y-1/2 w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
       </div>
     </div>
 

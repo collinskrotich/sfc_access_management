@@ -1,5 +1,6 @@
 "use client";
 import Fab from '@/components/Fab';
+import Recents from '@/components/Recents';
 import { Sidebar } from '@/components/Sidebar'
 import SummaryCards from '@/components/summaryCards';
 
@@ -9,6 +10,7 @@ export default function Home() {
       <Sidebar/>
       <Fab/>   
       <SummaryCards/>
+      <Recents/>
     </div>
   )
 }

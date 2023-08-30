@@ -20,11 +20,29 @@ export const data = [
     {
         id: 12,
         name: {
-            first: 'Athi River',
+            first: 'Kasarani',
             last: 'Data Center',
         },
-        temp: 'Papa Shirandula',
-        status: 'New visitor',
+        temp: 'Collins Rotich',
+        status: 'Staff',
+    },
+    {
+        id: 12,
+        name: {
+            first: 'Mombasa',
+            last: 'Data Center',
+        },
+        temp: 'Godfrey Agunga',
+        status: 'Staff',
+    },
+    {
+        id: 12,
+        name: {
+            first: 'Limuru',
+            last: 'Data Center',
+        },
+        temp: 'Jane Doe',
+        status: 'Contractor',
     },
     {
         id: 12,
@@ -32,26 +50,8 @@ export const data = [
             first: 'Athi River',
             last: 'Data Center',
         },
-        temp: 'Papa Shirandula',
-        status: 'New visitor',
-    },
-    {
-        id: 12,
-        name: {
-            first: 'Athi River',
-            last: 'Data Center',
-        },
-        temp: 'Papa Shirandula',
-        status: 'New visitor',
-    },
-    {
-        id: 12,
-        name: {
-            first: 'Athi River',
-            last: 'Data Center',
-        },
-        temp: 'Papa Shirandula',
-        status: 'New visitor',
+        temp: 'John Mwiko',
+        status: 'Staff',
     },
 
 ]

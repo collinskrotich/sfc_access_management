@@ -61,27 +61,77 @@ export default function AddUser() {
          value={idNo}
          className='border border-slate-500 px-8 py-2'
          type='text'
-         placeholder='User Email'        
+         placeholder='ID Number'        
         />
 
         <input 
-         onChange={(e) => setRole(e.target.value)}
-         value={role}
+         onChange={(e) => setPhoneNo(e.target.value)}
+         value={phoneNo}
          className='border border-slate-500 px-8 py-2'
          type='text'
-         placeholder='User Role'        
+         placeholder='Phone Number'        
+        />
+
+{/* fullName, idNo, phoneNo, reason, company, department, accessGranted, accessGrantedBy, timeIn, timeOut */}
+
+        <input
+         onChange={(e) => setReason(e.target.value)}
+         value={reason}
+         className='border border-slate-500 px-8 py-2'
+         type='text'
+         placeholder='Reason for access'        
         />
 
         <input
-         onChange={(e) => setPassword(e.target.value)}
-         value={password}
+         onChange={(e) => setCompany(e.target.value)}
+         value={company}
          className='border border-slate-500 px-8 py-2'
          type='text'
-         placeholder='User Password'        
+         placeholder='Company'        
+        />
+
+        <input
+         onChange={(e) => setDepartment(e.target.value)}
+         value={department}
+         className='border border-slate-500 px-8 py-2'
+         type='text'
+         placeholder='Department'        
+        />
+
+        <input
+         onChange={(e) => setAccessGranted(e.target.value)}
+         value={accessGranted}
+         className='border border-slate-500 px-8 py-2'
+         type='text'
+         placeholder='Access Granted'        
+        />
+
+        <input
+         onChange={(e) => setAccessGrantedBy(e.target.value)}
+         value={accessGrantedBy}
+         className='border border-slate-500 px-8 py-2'
+         type='text'
+         placeholder='Access Granted By'        
+        />
+
+        <input
+         onChange={(e) => setTimeIn(e.target.value)}
+         value={timeIn}
+         className='border border-slate-500 px-8 py-2'
+         type='text'
+         placeholder='Time In'        
+        />
+
+        <input
+         onChange={(e) => setTimeOut(e.target.value)}
+         value={timeOut}
+         className='border border-slate-500 px-8 py-2'
+         type='text'
+         placeholder='Time Out'        
         />
 
         <button type='submit' className='bg-green-600 font-bold text-white py-3 px-6 w-fit'>
-            Add user
+            Create 
         </button>
 
     </form>

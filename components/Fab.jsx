@@ -14,7 +14,10 @@ function Fab() {
       <div className="Ifyouaregoingto w-80 text-gray-800 text-sm font-normal leading-snug">Give access to staff and visitors</div>
     </div>
     <div className="Button px-4 py-1.5 bg-green-600 rounded-lg shadow justify-center items-center inline-flex">
-      <Link href={"/addEntrant"}  className="Text text-center text-white text-sm font-bold leading-normal">Grant Access</Link>
+      <Link href={"/addStaff"}  className="Text text-center text-white text-sm font-bold leading-normal">Staff Access</Link>
+    </div>
+    <div className="Button px-4 py-1.5 bg-yellow-600 rounded-lg shadow justify-center items-center inline-flex">
+      <Link href={"/addVisitor"}  className="Text text-center text-white text-sm font-bold leading-normal">Visitor Access</Link>
     </div>
   </div>
   <div className="IllustrationSeo w-72 h-52 relative flex-col justify-start items-start flex">

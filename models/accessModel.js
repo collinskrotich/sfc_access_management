@@ -1,0 +1,25 @@
+import mongoose, {Schema} from "mongoose";
+
+const accessSchema = new Schema(
+    {
+        fullName: String, 
+        idNo: String,
+        phoneNo: String, 
+        reason: String,
+        company: String,      
+        department: String, 
+        accessGranted: Boolean,
+        accessGrantedBy: String,
+        timeIn: String, 
+        timeOut: String, 
+    },
+    {
+        timestamps: true,
+    }
+    
+    );
+
+const Access = mongoose.models.Access || mongoose.model("Access", accessSchema);
+
+module.exports = Access;
+

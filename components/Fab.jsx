@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 
 const items = ["Thika data center", "Athi River", "Limuru", "SCC", "Konza"];
@@ -13,7 +14,7 @@ function Fab() {
       <div className="Ifyouaregoingto w-80 text-gray-800 text-sm font-normal leading-snug">Give access to staff and visitors</div>
     </div>
     <div className="Button px-4 py-1.5 bg-green-600 rounded-lg shadow justify-center items-center inline-flex">
-      <div className="Text text-center text-white text-sm font-bold leading-normal">Grant Access</div>
+      <Link href={"/addEntrant"}  className="Text text-center text-white text-sm font-bold leading-normal">Grant Access</Link>
     </div>
   </div>
   <div className="IllustrationSeo w-72 h-52 relative flex-col justify-start items-start flex">

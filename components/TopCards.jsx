@@ -4,7 +4,7 @@ import React from 'react'
 const items = ["Thika data center", "Athi River", "Limuru", "SCC", "Konza"];
 
 
-function Fab() {
+export default function TopCards() {
   return (
     <div className='pl-60 flex gap-3 pt-10'>
         <div className="GeneralAppWelcome w-190 h-72 pl-10 pr-6 py-6 bg-green-200 rounded-2xl justify-end items-center gap-6 inline-flex">
@@ -107,5 +107,3 @@ function Fab() {
     </div>
   )
 }
-
-export default Fab

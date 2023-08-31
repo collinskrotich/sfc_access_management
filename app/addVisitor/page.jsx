@@ -3,25 +3,25 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
-export default function AddUser() {
+export default function AddVisitor() {
 
   const [fullName, setFullName] = useState("");
   const [idNo, setIdNo] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [reason, setReason] = useState("");
   const [company, setCompany] = useState("");
-  const [department, setDepartment] = useState("");
+//   const [department, setDepartment] = useState("");
   const [accessGranted, setAccessGranted] = useState("");
   const [accessGrantedBy, setAccessGrantedBy] = useState("");
   const [timeIn, setTimeIn] = useState("");
-  const [timeOut, setTimeOut] = useState("");
+//   const [timeOut, setTimeOut] = useState("");
 
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!fullName || !idNo || !phoneNo || !reason || !company || !department || !accessGranted || !accessGrantedBy || !timeIn || !timeOut) {
+    if (!fullName || !idNo || !phoneNo || !reason || !company || !accessGranted || !accessGrantedBy || !timeIn ) {
       alert("Please fill all fields");
       return;
     }
@@ -32,13 +32,13 @@ export default function AddUser() {
         headers: {
           "Content-Type": "application/json",
       },
-      body: JSON.stringify({ fullName, idNo, phoneNo, reason, company, department, accessGranted, accessGrantedBy, timeIn, timeOut }),
+      body: JSON.stringify({ fullName, idNo, phoneNo, reason, company, accessGranted, accessGrantedBy, timeIn }),
     });
       
     if (res.ok) {
       router.push("/");
     }else {
-      throw new Error("Failed to create new access");
+      throw new Error("Failed to create new visitor access");
     }
   } catch (error) {
     console.log(error);
@@ -53,7 +53,7 @@ export default function AddUser() {
          value={fullName}
          className='border border-slate-500 px-8 py-2'
          type='text'
-         placeholder='User Full Name'        
+         placeholder='Visitor Full Name'        
         />
         
         <input 
@@ -87,15 +87,7 @@ export default function AddUser() {
          value={company}
          className='border border-slate-500 px-8 py-2'
          type='text'
-         placeholder='Company'        
-        />
-
-        <input
-         onChange={(e) => setDepartment(e.target.value)}
-         value={department}
-         className='border border-slate-500 px-8 py-2'
-         type='text'
-         placeholder='Department'        
+         placeholder='Affiliation/Company'        
         />
 
         <input
@@ -120,14 +112,6 @@ export default function AddUser() {
          className='border border-slate-500 px-8 py-2'
          type='text'
          placeholder='Time In'        
-        />
-
-        <input
-         onChange={(e) => setTimeOut(e.target.value)}
-         value={timeOut}
-         className='border border-slate-500 px-8 py-2'
-         type='text'
-         placeholder='Time Out'        
         />
 
         <button type='submit' className='bg-green-600 font-bold text-white py-3 px-6 w-fit'>

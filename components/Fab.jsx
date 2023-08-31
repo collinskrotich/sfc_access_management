@@ -26,7 +26,7 @@ function Fab() {
   </div>
 </div>
 
-<div className="GeneralBankingIncome w-72 h-72 bg-green-200 rounded-2xl flex-col justify-start items-center inline-flex">
+<div className="GeneralBankingIncome w-72 h-72 bg-blue-300 rounded-2xl flex-col justify-start items-center inline-flex">
   <div className=" self-stretch p-6 justify-between items-start gap-6 inline-flex">
     <div className=" flex-col justify-start items-start gap-2 inline-flex">
       <div className="Totalactiveusers text-emerald-800 text-sm font-bold leading-snug">Guest Entrants</div>
@@ -49,7 +49,7 @@ function Fab() {
   </div>
 </div>
 
-<div className="GeneralBankingIncome w-72 h-72 bg-green-200 rounded-2xl flex-col justify-start items-center inline-flex">
+<div className="GeneralBankingIncome w-72 h-72 bg-amber-400 rounded-2xl flex-col justify-start items-center inline-flex">
   <div className=" self-stretch p-6 justify-between items-start gap-6 inline-flex">
     <div className=" flex-col justify-start items-start gap-2 inline-flex">
       <div className="Totalactiveusers text-emerald-800 text-sm font-bold leading-snug">Staff entrants</div>

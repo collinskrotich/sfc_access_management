@@ -33,7 +33,7 @@ export default function Header() {
 
       <h2 className='text-xl'>{formattedDay}, {formattedDateTime} </h2>
       <div className='flex flex-row'>
-        <div className='pr-4'>Hello Collins</div>
+        <div className='pr-4'>Admin</div>
         <div className='relative pr-4'>
           <img className='w-8 h-8 rounded-full ' src='avatar.jpg' alt='avatar' />
           <span className="absolute top-0 left-8 transform -translate-y-1/2 w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>

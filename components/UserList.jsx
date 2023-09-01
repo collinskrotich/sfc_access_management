@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import RemoveBtn from './RemoveBtn';
+import RemoveBtn from './RemoveUser';
 import { HiPencilAlt } from 'react-icons/hi';
 import Link from 'next/link';
 

@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'; // Import useEffect and useState
-import RemoveBtn from './RemoveBtn';
+import RemoveBtn from './RemoveGKeeper';
 import { HiPencilAlt } from 'react-icons/hi';
 import Link from 'next/link';
 
@@ -60,7 +60,7 @@ function GateKeeperList() {
                           <h2>Created at: {t.createdAt}</h2>
                       </div>
                       <div className='flex gap-2'>
-                          <RemoveBtn />
+                          <RemoveBtn id={t._id}/>
                           <Link href={`/editGateKeeper/${t._id}`}>
                               <HiPencilAlt size={24} />
                           </Link>

@@ -1,11 +1,13 @@
 import connectDB from '@/app/config/connectDB';
 import User from '@/models/user';
 import { NextRequest, NextResponse } from 'next/server';
+import bcrypt from "bcryptjs";
 
 export async function POST(request) {
     const { fullName, email, role, password, created } = await request.json();
+    const hashedPassword = await bcrypt.hash(password, 12);
     await connectDB();
-    await User.create({ fullName, email, role, password});
+    await User.create({ fullName, email, role, password: hashedPassword});
     return NextResponse.json({message: "User created successfully!"}, {status: 201});
 }
 

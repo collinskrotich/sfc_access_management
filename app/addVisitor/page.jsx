@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link';
 
 export default function AddVisitor() {
 
@@ -15,6 +16,7 @@ export default function AddVisitor() {
   const [accessGrantedBy, setAccessGrantedBy] = useState("");
   const [timeIn, setTimeIn] = useState("");
 //   const [timeOut, setTimeOut] = useState("");
+const [error, setError] = useState("");
 
   const router = useRouter();
 
@@ -22,7 +24,7 @@ export default function AddVisitor() {
     e.preventDefault();
 
     if (!fullName || !idNo || !phoneNo || !reason || !company || !accessGranted || !accessGrantedBy || !timeIn ) {
-      alert("Please fill all fields");
+      setError("Please fill all fields");
       return;
     }
 
@@ -45,8 +47,18 @@ export default function AddVisitor() {
   }
 };
 
+const handleCancelClick = () => {
+  // Redirect to the home page
+  router.push('/');
+};
+
   return (
-    <div className='mt-8'>
+    
+    <div className='grid place-items-center h-screen'>
+    <div className='shadow-lg p-5 rounded-lg border-t-4 border-green-400'>
+        <h1 className='text-xl font-bold my-4'>
+            Visitor Access
+        </h1> 
     <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
         <input 
          onChange={(e) => setFullName(e.target.value)}
@@ -114,11 +126,24 @@ export default function AddVisitor() {
          placeholder='Time In'        
         />
 
-        <button type='submit' className='bg-green-600 font-bold text-white py-3 px-6 w-fit'>
-            Create 
+        { error && (
+            <div className='bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2'>
+            {error}
+            </div>
+        )}
+
+
+      <div className='flex justify-between'>
+        <button type='button' onClick={handleCancelClick} className='bg-gray-500 text-white py-2 px-4 rounded'>
+         Back
         </button>
+        <button type='submit' className='bg-blue-500 text-white py-2 px-4 rounded'>
+          Submit
+        </button>
+      </div>
 
     </form>
+    </div>
     </div>
   )
 }

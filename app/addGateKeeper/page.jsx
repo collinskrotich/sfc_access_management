@@ -9,6 +9,7 @@ export default function AddGateKeeper() {
   const [phone, setPhone] = useState("");
   const [staffNo, setStaffNo] = useState("");
   const [station, setStation] = useState("");
+  const [error, setError] = useState("");
 
   const router = useRouter();
 
@@ -16,7 +17,7 @@ export default function AddGateKeeper() {
     e.preventDefault();
 
     if(!name || !phone || !station || !staffNo) {
-      alert("Please fill all fields");
+      setError("Please fill all fields");
       return;
     }
 
@@ -40,8 +41,17 @@ export default function AddGateKeeper() {
     }
   };
 
+  const handleCancelClick = () => {
+    // Redirect to the home page
+    router.push('/');
+  };
+
   return (
-    <div className='mt-8'>  
+    <div className='grid place-items-center h-screen'>
+    <div className='shadow-lg p-5 rounded-lg border-t-4 border-green-400'>
+        <h1 className='text-xl font-bold my-4'>
+            New Visitor
+        </h1>  
     <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
         <input 
          onChange={(e) => setName(e.target.value)}
@@ -75,11 +85,23 @@ export default function AddGateKeeper() {
          placeholder='Guard station'        
         />
 
-        <button type='submit' className='bg-green-600 font-bold text-white py-3 px-6 w-fit'>
-            Add Guard
+      { error && (
+            <div className='bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2'>
+            {error}
+            </div>
+        )}
+
+    <div className='flex justify-between'>
+        <button type='button' onClick={handleCancelClick} className='bg-gray-500 text-white py-2 px-4 rounded'>
+          Cancel
         </button>
+        <button type='submit' className='bg-blue-500 text-white py-2 px-4 rounded'>
+          Submit
+        </button>
+      </div>
 
     </form>
+    </div>
     </div>
   )
 }

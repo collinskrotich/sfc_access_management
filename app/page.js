@@ -4,16 +4,17 @@ import Recents from '@/components/Recents';
 import { Sidebar } from '@/components/Sidebar'
 import SummaryCards from '@/components/summaryCards';
 import LoginForm from '@/components/LoginForm';
+import Header from '@/components/Header';
 
 export default function Home() {
   return (
     <div>
-      {/* <Sidebar/>
+      <Sidebar/>
       <Header />
       <Fab/>   
       <SummaryCards/>
-      <Recents/> */}
-      <LoginForm/>
+      <Recents/>
+      {/* <LoginForm/> */}
     </div>
   )
 }

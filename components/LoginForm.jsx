@@ -1,7 +1,10 @@
+'use client'
 import Link from 'next/link'
 import React from 'react'
 
 function LoginForm() {
+    const [error, setError] = React.useState(false);
+
   return (
     <div className='grid place-items-center h-screen'>
         <div className='shadow-lg p-5 rounded-lg border-t-4 border-green-400'>
@@ -13,9 +16,11 @@ function LoginForm() {
                 <input type='password' placeholder='Password'/>
                 <button className='bg-green-600 font-bold text-white py-2 px-6 text-center cursor-pointer'>Login</button>
 
-                <div className='bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2'>
-                    Error message
-                </div>
+                { error && (
+            <div className='bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2'>
+            Error message
+            </div>
+        )}
             </form>
 
         </div>

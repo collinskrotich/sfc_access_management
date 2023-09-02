@@ -50,7 +50,6 @@ export default function Recents () {
             <th class="border border-slate-300 ...">Reason for Access</th>
             <th class="border border-slate-300 ...">Company</th>
             <th class="border border-slate-300 ...">Department</th>
-            <th class="border border-slate-300 ...">Access Granted</th>
             <th class="border border-slate-300 ...">Access Granted By</th>
             <th class="border border-slate-300 ...">Time In</th>
             </tr>
@@ -65,7 +64,6 @@ export default function Recents () {
                         <td class="border border-slate-300 ...">{order.reason}</td>
                         <td class="border border-slate-300 ...">{order.company}</td>
                         <td class="border border-slate-300 ...">{order.department}</td>
-                        <td class="border border-slate-300 ...">{order.accessGranted}</td>
                         <td class="border border-slate-300 ...">{order.accessGrantedBy}</td>
                         <td class="border border-slate-300 ...">{order.timeIn}</td>
                         </tr>

@@ -10,8 +10,7 @@ const accessSchema = new Schema(
         department: String, 
         accessGranted: String,
         accessGrantedBy: String,
-        timeIn: String, 
-        timeOut: String, 
+        timeIn: String,  
     },
     {
         timestamps: true,

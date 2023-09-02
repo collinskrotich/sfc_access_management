@@ -20,7 +20,7 @@ async function getUsers() {
   }
 }
 
-function UserList() {
+export default function UserList() {
   const [rusers, setRUsers] = useState([]);
   const [error, setError] = useState(null);
 
@@ -59,4 +59,4 @@ function UserList() {
   );
 }
 
-export default UserList;
+

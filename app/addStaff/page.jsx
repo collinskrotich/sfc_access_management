@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 export default function AddUser() {
@@ -9,7 +9,7 @@ export default function AddUser() {
   const [idNo, setIdNo] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [reason, setReason] = useState("");
-  const [company, setCompany] = useState("");
+  const [company, setCompany] = useState("Safaricom PLC");
   const [department, setDepartment] = useState("");
   const [accessGranted, setAccessGranted] = useState("");
   const [accessGrantedBy, setAccessGrantedBy] = useState("");
@@ -22,7 +22,7 @@ export default function AddUser() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!fullName || !idNo || !phoneNo || !reason || !company || !department || !accessGranted || !accessGrantedBy || !timeIn || !timeOut) {
+    if (!fullName || !idNo || !phoneNo || !reason || !department || !accessGranted || !accessGrantedBy || !timeIn) {
       setError("Please fill all fields");
       return;
     }
@@ -33,7 +33,7 @@ export default function AddUser() {
         headers: {
           "Content-Type": "application/json",
       },
-      body: JSON.stringify({ fullName, idNo, phoneNo, reason, company, department, accessGranted, accessGrantedBy, timeIn, timeOut }),
+      body: JSON.stringify({ fullName, idNo, phoneNo, reason, company, department, accessGranted, accessGrantedBy, timeIn }),
     });
       
     if (res.ok) {
@@ -50,6 +50,17 @@ const handleCancelClick = () => {
   // Redirect to the home page
   router.push('/');
 };
+
+const getCurrentTimestamp = () => {
+  const now = new Date();
+  return now.toLocaleString(); // You can format this as needed
+};
+
+useEffect(() => {
+  // Set the initial value of 'timeIn' to the current timestamp when the component mounts
+  setTimeIn(getCurrentTimestamp());
+}, []);
+
 
   return (
     <div className='grid place-items-center h-screen'>
@@ -71,7 +82,7 @@ const handleCancelClick = () => {
          value={idNo}
          className='border border-slate-500 px-8 py-2'
          type='text'
-         placeholder='ID Number'        
+         placeholder='Staff ID'        
         />
 
         <input 
@@ -93,12 +104,13 @@ const handleCancelClick = () => {
         />
 
         <input
-         onChange={(e) => setCompany(e.target.value)}
-         value={company}
-         className='border border-slate-500 px-8 py-2'
-         type='text'
-         placeholder='Company'        
+          readOnly
+          value={company}
+          className='border border-slate-500 px-8 py-2'
+          type='text'
+          placeholder='Safaricom PLC'
         />
+
 
         <input
          onChange={(e) => setDepartment(e.target.value)}
@@ -130,14 +142,6 @@ const handleCancelClick = () => {
          className='border border-slate-500 px-8 py-2'
          type='text'
          placeholder='Time In'        
-        />
-
-        <input
-         onChange={(e) => setTimeOut(e.target.value)}
-         value={timeOut}
-         className='border border-slate-500 px-8 py-2'
-         type='text'
-         placeholder='Time Out'        
         />
 
 { error && (

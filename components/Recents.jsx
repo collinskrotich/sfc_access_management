@@ -27,7 +27,6 @@ export default function Recents () {
         getAccess()
           .then((data) => {
             setAccess(data.access);
-            console.log("***********",data);
           })
           .catch((err) => {
             setError(err);
@@ -46,7 +45,7 @@ export default function Recents () {
           <thead class="border-b font-medium dark:border-neutral-500">
             <tr>
             <th class="border border-slate-300 ...">Full Name</th>
-            <th class="border border-slate-300 ...">ID Number</th>
+            <th class="border border-slate-300 ...">Staff ID / National ID</th>
             <th class="border border-slate-300 ...">Phone Number</th>
             <th class="border border-slate-300 ...">Reason for Access</th>
             <th class="border border-slate-300 ...">Company</th>
@@ -61,7 +60,7 @@ export default function Recents () {
             {access.map((order) => (
                         <tr key={order._id}>
                         <td class="border border-slate-300 ...">{order.fullName}</td>
-                        <td class="border border-slate-300 ...">{order.idNo}</td>
+                        <td class="border border-slate-300 ...">{order.idNo || order.staffNo}</td>
                         <td class="border border-slate-300 ...">{order.phoneNo}</td>
                         <td class="border border-slate-300 ...">{order.reason}</td>
                         <td class="border border-slate-300 ...">{order.company}</td>

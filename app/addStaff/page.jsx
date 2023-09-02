@@ -11,7 +11,6 @@ export default function AddUser() {
   const [reason, setReason] = useState("");
   const [company, setCompany] = useState("Safaricom PLC");
   const [department, setDepartment] = useState("");
-  const [accessGranted, setAccessGranted] = useState("");
   const [accessGrantedBy, setAccessGrantedBy] = useState("");
   const [timeIn, setTimeIn] = useState("");
   const [timeOut, setTimeOut] = useState("");
@@ -22,7 +21,7 @@ export default function AddUser() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!fullName || !idNo || !phoneNo || !reason || !department || !accessGranted || !accessGrantedBy || !timeIn) {
+    if (!fullName || !idNo || !phoneNo || !reason || !department || !accessGrantedBy || !timeIn) {
       setError("Please fill all fields");
       return;
     }
@@ -33,7 +32,7 @@ export default function AddUser() {
         headers: {
           "Content-Type": "application/json",
       },
-      body: JSON.stringify({ fullName, idNo, phoneNo, reason, company, department, accessGranted, accessGrantedBy, timeIn }),
+      body: JSON.stringify({ fullName, idNo, phoneNo, reason, company, department, accessGrantedBy, timeIn }),
     });
       
     if (res.ok) {
@@ -93,15 +92,19 @@ useEffect(() => {
          placeholder='Phone Number'        
         />
 
-{/* fullName, idNo, phoneNo, reason, company, department, accessGranted, accessGrantedBy, timeIn, timeOut */}
+{/* fullName, idNo, phoneNo, reason, company, department,accessGrantedBy, timeIn, timeOut */}
 
-        <input
-         onChange={(e) => setReason(e.target.value)}
-         value={reason}
-         className='border border-slate-500 px-8 py-2'
-         type='text'
-         placeholder='Reason for access'        
-        />
+        <select
+        id="reason"
+        value={reason}
+        onChange={(e) => setReason(e.target.value)}
+        className='border border-slate-500 px-8 py-2'
+      >
+        <option value="">Reason for Access</option>
+        <option value="Maintenance">Maintenance</option>
+        <option value="Training">Training</option>
+        <option value="Emergency">Emergency</option>
+      </select>
 
         <input
           readOnly
@@ -111,22 +114,18 @@ useEffect(() => {
           placeholder='Safaricom PLC'
         />
 
-
-        <input
-         onChange={(e) => setDepartment(e.target.value)}
-         value={department}
-         className='border border-slate-500 px-8 py-2'
-         type='text'
-         placeholder='Department'        
-        />
-
-        <input
-         onChange={(e) => setAccessGranted(e.target.value)}
-         value={accessGranted}
-         className='border border-slate-500 px-8 py-2'
-         type='text'
-         placeholder='Access Granted'        
-        />
+        <select
+        id="department"
+        value={department}
+        onChange={(e) => setDepartment(e.target.value)}
+        className='border border-slate-500 px-8 py-2'
+      >
+        <option value="">Department</option>
+        <option value="Maintenance">Digital IT</option>
+        <option value="Training">Facilities</option>
+        <option value="Emergency">Networks</option>
+        <option value="Emergency">Security</option>
+      </select>
 
         <input
          onChange={(e) => setAccessGrantedBy(e.target.value)}

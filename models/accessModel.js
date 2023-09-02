@@ -8,7 +8,6 @@ const accessSchema = new Schema(
         reason: String,
         company: String,      
         department: String, 
-        accessGranted: String,
         accessGrantedBy: String,
         timeIn: String,  
     },

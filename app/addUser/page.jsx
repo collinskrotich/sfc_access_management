@@ -22,6 +22,22 @@ export default function AddUser() {
     }
 
     try {
+
+      const resUserExists = await fetch('api/userExists', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({email}),
+      })
+
+      const { user } = await resUserExists.json();
+
+      if (user) {
+        setError("From the email, User already exists!")
+        return;
+      }
+
       const res = await fetch("/api/users", {
         method: "POST",
         headers: {
@@ -34,6 +50,7 @@ export default function AddUser() {
       const form = e.target;
       form.reset();
       router.push("/users")
+      
     }else {
       throw new Error("Failed to create a user");
     }

@@ -2,7 +2,7 @@
 import { Disclosure } from '@headlessui/react';
 import React from 'react'
 import {GiHamburgerMenu} from "react-icons/gi";
-
+import { signOut } from 'next-auth/react';
 // import icons from react-icons
 import {
     MdOutlineSpaceDashboard,
@@ -20,8 +20,19 @@ import { CgProfile} from "react-icons/cg";
 import { FaRegComments} from "react-icons/fa";
 import { BiMessageSquareDots } from "react-icons/bi";
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export const Sidebar = () => {
+    const router = useRouter();
+
+    const handleSignOut = () => {
+        // Perform your sign-out logic here (e.g., clearing authentication token, etc.)
+        router.push('/');
+        signOut();
+    
+        // Redirect to the home page
+        
+      };
   return (
     <div>
         <Disclosure as="nav">
@@ -107,15 +118,14 @@ export const Sidebar = () => {
                         <div className='my-4 w-full'>
                         <div className='flex mb-2 justify-start items-center gap-4 px-5 border border-gray-200 hover:bg-red-500 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto'>
                                 <MdLogout className='text-2xl text-gray-600 group-hover:text-white' />
-                                <h3 className='text-base text-gray-600 group-hover:text-white font-semibold'>
+                                <button 
+                                    onClick={handleSignOut}
+                                    className='text-base text-gray-600 group-hover:text-white font-semibold'
+                                    >
                                     Logout
-                                </h3>
+                                </button>
                             </div>
-
-
-                        </div>
-
-                    
+                        </div>                 
                 </div>
             </div>
         </Disclosure>

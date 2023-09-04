@@ -10,8 +10,6 @@ import { authOptions } from '../api/auth/[...nextauth]/route';
 export default async function page() {
 const session = await getServerSession(authOptions);
 
-if (session) redirect("/dashboard");
-
   return (
     <div>
         <LoginForm/>

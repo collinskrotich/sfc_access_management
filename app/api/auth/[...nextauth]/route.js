@@ -4,27 +4,37 @@ import connectDB from "@/app/config/connectDB";
 import User from '@/models/user'
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from 'bcryptjs'
-import { PrismaAdapter } from "@auth/prisma-adapter";
-import { PrismaClient } from "@prisma/client";
+// import { PrismaAdapter } from "@auth/prisma-adapter";
+// import { PrismaClient } from "@prisma/client";
 
-const prisma =  new PrismaClient();
+// const prisma =  new PrismaClient();
 
 export const authOptions = {
-    adapter: PrismaAdapter(prisma),
+    // adapter: PrismaAdapter(prisma),
     providers: [
         CredentialsProvider({
             name: "credentials",
-            credentials: {},
+            credentials: {
+                username: { label: "Username", type: "text", placeholder: "jsmith" },
+                password: { label: "Password", type: "password" },
+            },
 
-            async authorize(credentials) {
-                const {email, password } = credentials;
+                async authorize(credentials) {
+                    if (!credentials || !credentials.email || !credentials.password) {
+                        return null;
+                    }
+                    const { email, password } = credentials;
+                
 
                 try {
                     await connectDB();
+                    
                     const user = await User.findOne({ email });
 
+                    //const user = await prisma.user.findUnique({ where: { email: credentials: email}});
+
                     if (!user) {
-                        return user  
+                        return null; 
                     }
 
                     const passwordsMatch = await bcrypt.compare(password, user.password);
@@ -40,14 +50,17 @@ export const authOptions = {
                     
                 }
             }
+
         })
+            // End of credentials provider
+       
     ],
     session: {
         strategy: "jwt",
     }, 
     secret: process.env.NEXTAUTH_SECRET,
     pages: {
-        signIn: "/login",
+        signIn: "/",
         signOut: "/"
     },
 }

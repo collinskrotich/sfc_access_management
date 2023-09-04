@@ -15,12 +15,12 @@ export default function LoginForm() {
 
         try {
             const res = await signIn('credentials', {
-                email, 
+                email,
                 password,
-                redirect: false,
+                callbackUrl: '/dashboard'
             });
 
-            router.push('/dashboard')
+            // router.push('/dashboard')
 
             if(res.error) {
                 setError("Invalid credentials");
@@ -46,12 +46,12 @@ export default function LoginForm() {
                 />
 
                 <input 
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 type='password'
                 placeholder='Password'
                  />
 
-                <button 
+                <button type='submit'
                 className='bg-green-600 font-bold text-white py-2 px-6 text-center cursor-pointer'>
                     Login
                 </button>

@@ -13,6 +13,11 @@ export default function LoginForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (error) {
+            // Display the error message to the user
+            alert(error);
+          }
+
         try {
             const res = await signIn('credentials', {
                 email,

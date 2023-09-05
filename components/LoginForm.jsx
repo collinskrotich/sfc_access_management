@@ -30,7 +30,7 @@ export default function LoginForm() {
                 router.push('/dashboard');
             } else {
                 // Handle the error response
-                setError(res.error || 'An error occurred while signing in.');
+                setError('An error occurred while signing in.' +  res.error );
                 console.log("res.errorrrrr", res.error);
             }
 

@@ -13,27 +13,30 @@ export default function LoginForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (error) {
-            // Display the error message to the user
-            alert(error);
-          }
-
         try {
             const res = await signIn('credentials', {
                 email,
                 password,
-                callbackUrl: '/dashboard'
+                redirect: false,
+                
+                // callbackUrl: '/dashboard'
             });
+            console.log("res res", res);
 
             // router.push('/dashboard')
 
-            if(res.error) {
-                setError("Invalid credentials");
-                return;
+            if (res.error == null) {
+                // Redirect to the dashboard upon successful login
+                router.push('/dashboard');
+            } else {
+                // Handle the error response
+                setError(res.error || 'An error occurred while signing in.');
+                console.log("res.errorrrrr", res.error);
             }
+
         } catch (error) {
-            console.log(error)
-            
+            console.error("An error occurred:", error);
+            setError("An error occurred while signing in.");
         }
     }
 

@@ -18,7 +18,7 @@ export const authOptions = {
                     if (!credentials || !credentials.email || !credentials.password) {
                         return null;
                     }
-                    const { email, password } = credentials;
+                    // const { email, password } = credentials;
                 
 
                 try {
@@ -38,13 +38,15 @@ export const authOptions = {
                     if(!passwordsMatch) {
                         return null;
                     }
+
+                    const { fullname } = user;
                     
                     return {
                         id: user._id,
                         email: user.email,
-                        fullName: user.fullName,
+                        fullName: fullname
                       };
-                        
+           
 
                 } catch (error) {
                     console.log("Error", error)
@@ -52,7 +54,9 @@ export const authOptions = {
                 }
                 console.log("user", user);
                 console.log("fullnameeeeeeee", fullName);
+                
             }
+            
 
         })
             // End of credentials provider
@@ -67,6 +71,7 @@ export const authOptions = {
         signOut: "/"
     },
 }
+
 
 
 const handler = NextAuth(authOptions);

@@ -3,7 +3,6 @@
 import { useSession } from 'next-auth/react';
 
 import React, { useEffect, useState } from 'react';
-
 const months = [
   'January', 'February', 'March', 'April', 'May', 'June',
   'July', 'August', 'September', 'October', 'November', 'December'
@@ -48,7 +47,6 @@ export default function Header() {
         clearInterval(intervalId);
       };
     }, []);
-
 
   return (
     <div className='pl-60 flex justify-between pt-4'>

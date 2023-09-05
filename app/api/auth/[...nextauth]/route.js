@@ -4,13 +4,8 @@ import connectDB from "@/app/config/connectDB";
 import User from '@/models/user'
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from 'bcryptjs'
-// import { PrismaAdapter } from "@auth/prisma-adapter";
-// import { PrismaClient } from "@prisma/client";
-
-// const prisma =  new PrismaClient();
 
 export const authOptions = {
-    // adapter: PrismaAdapter(prisma),
     providers: [
         CredentialsProvider({
             name: "credentials",
@@ -19,7 +14,7 @@ export const authOptions = {
                 password: { label: "Password", type: "password" },
             },
 
-                async authorize(credentials, req) {
+                async authorize(credentials) {
                     if (!credentials || !credentials.email || !credentials.password) {
                         return null;
                     }
@@ -28,7 +23,8 @@ export const authOptions = {
 
                 try {
                     await connectDB();
-                    
+                    const { email, password } = credentials;
+                
                     const user = await User.findOne({ email });
 
                     //const user = await prisma.user.findUnique({ where: { email: credentials: email}});
@@ -42,8 +38,12 @@ export const authOptions = {
                     if(!passwordsMatch) {
                         return null;
                     }
-
-                        return user;
+                    
+                    return {
+                        id: user._id,
+                        email: user.email,
+                        fullName: user.fullName,
+                      };
                         
 
                 } catch (error) {
@@ -51,6 +51,7 @@ export const authOptions = {
                     
                 }
                 console.log("user", user);
+                console.log("fullnameeeeeeee", fullName);
             }
 
         })

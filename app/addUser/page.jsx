@@ -61,7 +61,7 @@ export default function AddUser() {
 
 const handleCancelClick = () => {
   // Redirect to the home page
-  router.push('/');
+  router.push('/users');
 };
 
   return (

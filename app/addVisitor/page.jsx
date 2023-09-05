@@ -49,7 +49,7 @@ const [error, setError] = useState("");
 
 const handleCancelClick = () => {
   // Redirect to the home page
-  router.push('/');
+  router.push('/dashboard');
 };
 
   return (

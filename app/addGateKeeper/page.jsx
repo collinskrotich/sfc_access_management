@@ -43,7 +43,7 @@ export default function AddGateKeeper() {
 
   const handleCancelClick = () => {
     // Redirect to the home page
-    router.push('/');
+    router.push('/gatekeepers');
   };
 
   return (

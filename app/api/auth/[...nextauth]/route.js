@@ -44,11 +44,13 @@ export const authOptions = {
                     }
 
                         return user;
+                        
 
                 } catch (error) {
                     console.log("Error", error)
                     
                 }
+                console.log("user", user);
             }
 
         })

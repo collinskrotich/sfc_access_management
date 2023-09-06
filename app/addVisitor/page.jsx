@@ -23,7 +23,7 @@ const [error, setError] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!fullName || !idNo || !phoneNo || !reason || !company || !accessGranted || !accessGrantedBy || !timeIn ) {
+    if (!fullName || !idNo || !phoneNo || !reason || !company || !accessGrantedBy || !timeIn ) {
       setError("Please fill all fields");
       return;
     }
@@ -34,11 +34,11 @@ const [error, setError] = useState("");
         headers: {
           "Content-Type": "application/json",
       },
-      body: JSON.stringify({ fullName, idNo, phoneNo, reason, company, accessGranted, accessGrantedBy, timeIn }),
+      body: JSON.stringify({ fullName, idNo, phoneNo, reason, company, accessGrantedBy, timeIn }),
     });
       
     if (res.ok) {
-      router.push("/");
+      router.push("/dashboard");
     }else {
       throw new Error("Failed to create new visitor access");
     }
@@ -114,14 +114,6 @@ useEffect(() => {
          className='border border-slate-500 px-8 py-2'
          type='text'
          placeholder='Affiliation/Company'        
-        />
-
-        <input
-         onChange={(e) => setAccessGranted(e.target.value)}
-         value={accessGranted}
-         className='border border-slate-500 px-8 py-2'
-         type='text'
-         placeholder='Access Granted'        
         />
 
         <input

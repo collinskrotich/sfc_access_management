@@ -70,6 +70,7 @@ export default function LoginForm() {
                     </div>
         )}
             </form>
+            <p>email: moringatest@gmail.com || PW: 123456#</p>
 
         </div>
     </div>

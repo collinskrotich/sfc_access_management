@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link';
 
@@ -52,6 +52,11 @@ const handleCancelClick = () => {
   router.push('/dashboard');
 };
 
+useEffect(() => {
+  // Set the initial value of 'timeIn' to the current timestamp when the component mounts
+  setTimeIn(getCurrentTimestamp());
+}, []);
+
   return (
     
     <div className='grid place-items-center h-screen'>
@@ -86,13 +91,17 @@ const handleCancelClick = () => {
 
 {/* fullName, idNo, phoneNo, reason, company, department, accessGranted, accessGrantedBy, timeIn, timeOut */}
 
-        <input
-         onChange={(e) => setReason(e.target.value)}
-         value={reason}
-         className='border border-slate-500 px-8 py-2'
-         type='text'
-         placeholder='Reason for access'        
-        />
+      <select
+        id="reason"
+        value={reason}
+        onChange={(e) => setReason(e.target.value)}
+        className='border border-slate-500 px-8 py-2'
+      >
+        <option value="">Reason for Access</option>
+        <option value="Maintenance">Maintenance</option>
+        <option value="Training">Training</option>
+        <option value="Emergency">Emergency</option>
+      </select>
 
         <input
          onChange={(e) => setCompany(e.target.value)}
@@ -118,7 +127,7 @@ const handleCancelClick = () => {
          placeholder='Access Granted By'        
         />
 
-        <input
+<input
          onChange={(e) => setTimeIn(e.target.value)}
          value={timeIn}
          className='border border-slate-500 px-8 py-2'
@@ -135,7 +144,7 @@ const handleCancelClick = () => {
 
       <div className='flex justify-between'>
         <button type='button' onClick={handleCancelClick} className='bg-gray-500 text-white py-2 px-4 rounded'>
-         Back
+         Cancel
         </button>
         <button type='submit' className='bg-blue-500 text-white py-2 px-4 rounded'>
           Submit

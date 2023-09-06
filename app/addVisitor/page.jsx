@@ -52,6 +52,11 @@ const handleCancelClick = () => {
   router.push('/dashboard');
 };
 
+const getCurrentTimestamp = () => {
+  const now = new Date();
+  return now.toLocaleString(); // You can format this as needed
+};
+
 useEffect(() => {
   // Set the initial value of 'timeIn' to the current timestamp when the component mounts
   setTimeIn(getCurrentTimestamp());
